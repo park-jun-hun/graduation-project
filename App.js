@@ -27,7 +27,7 @@ export default function App() {
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{
                     headerStyle: {
-                        backgroundColor: '#FF7676',
+                        backgroundColor: '#484848',
                         shadowColor: 'transparent',
                         height: winHeight * 0.12
                     },
@@ -40,7 +40,7 @@ export default function App() {
                         name="HomeScreen"
                         component={HomeScreen}
                         options={({navigation, route}) => ({
-                            title: "NABI",
+                            title: "COPYCAT",
                             headerLeft: () => (
                                 <HeaderIcon onPress={() => navigation.navigate('MenuScreen')}>
                                     <MenuIcon/>
