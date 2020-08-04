@@ -33,12 +33,14 @@ export default function HomeScreen({navigation}) {
 
 const Container = styled.View`
   flex:1;
+  background-color:#484848;
 `;
 const Part1 = styled.View`
   flex:0.25
 `;
 const Part2 = styled.View`
   flex:0.25
+  background-color:#484848;
 `;
 const Part3 = styled.View`
   flex:0.25
