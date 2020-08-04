@@ -12,6 +12,7 @@ import LeeScreen from "./Lee";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MenuIcon from "./svgs/menu";
 
+
 import styled from "styled-components/native";
 export const winWidth = Dimensions.get('window').width;
 export const winHeight = Dimensions.get('window').height;
