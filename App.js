@@ -40,7 +40,7 @@ export default function App() {
                         name="HomeScreen"
                         component={HomeScreen}
                         options={({navigation, route}) => ({
-                            title: "COPYCAT",
+                            title: "CopyCat",
                             headerLeft: () => (
                                 <HeaderIcon onPress={() => navigation.navigate('MenuScreen')}>
                                     <MenuIcon/>
