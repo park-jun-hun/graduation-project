@@ -17,7 +17,7 @@ export default function HomeScreen({navigation}) {
         
             <Part1></Part1>
             <Part2>
-            <Text onPress={() => navigation.navigate('ChoiScreen')}>최dgdgdgdg두혁</Text>
+            <Text onPress={() => navigation.navigate('ChoiScreen')}>최두혁</Text>
             </Part2>
             <Part3>
             <Text onPress={() => navigation.navigate('ParkScreen')}>박정훈</Text>
