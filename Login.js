@@ -24,7 +24,7 @@ export default function LoginScreen({navigation}) {
          </Icon>
 
          <Btn1style>
-         <Btn1/>
+         <Btn1  onPress={() => navigation.navigate('IntroScreen')}/>
          </Btn1style>
 
          <Btn2style>

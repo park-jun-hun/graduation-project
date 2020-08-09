@@ -9,6 +9,7 @@ import ChoiScreen from "./Choi";
 import ParkScreen from "./Park";
 import LeeScreen from "./Lee";
 import LoginScreen from "./Login";
+import IntroScreen from "./Intro";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 
@@ -52,17 +53,13 @@ export default function App() {
                         name="LeeScreen"
                         component={LeeScreen}
                         options={{headerShown: false}}/>
+                         <Stack.Screen
+                        name="IntroScreen"
+                        component={IntroScreen}
+                        options={{headerShown: false}}/>
 
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>
     );
 }
-<<<<<<< HEAD
-=======
-
-const HeaderIcon = styled.TouchableOpacity`
-margin-left: 30px;
-margin-right: ${props => (props.home ? '0px' : '30px')};
-`;
->>>>>>> master
