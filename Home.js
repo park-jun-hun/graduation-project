@@ -2,7 +2,7 @@ import {Text, View, Easing, Button} from "react-native";
 import React from "react";
 import styled from "styled-components/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Icon from "./svgs/icon";
+
 import {
   Dimensions
 } from 'react-native';
@@ -15,9 +15,7 @@ export default function HomeScreen({navigation}) {
     return (
         <Container>
         <Main>
-          <Icon_style>
-          <Icon/>
-          </Icon_style>
+       
         </Main>
 
                     <Part1>
@@ -36,15 +34,14 @@ export default function HomeScreen({navigation}) {
 
 const Container = styled.View`
   flex:1;
-  background-color:white;
+
 `;
 const Main =styled.View`
   flex:0.4;
 `;
 const Icon_style = styled.View`
   align-items:center;
-  height:40px;
-  width:40px;
+
 `;
 const Part1 = styled.View`
 flex:0.2;

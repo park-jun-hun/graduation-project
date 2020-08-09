@@ -8,6 +8,7 @@ import HomeScreen from "./Home";
 import ChoiScreen from "./Choi";
 import ParkScreen from "./Park";
 import LeeScreen from "./Lee";
+import LoginScreen from "./Login";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 
@@ -24,25 +25,19 @@ export default function App() {
 
         <SafeAreaProvider>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{
-                    headerStyle: {
-                        backgroundColor: '#484848',
-                        shadowColor: 'transparent',
-                        height: winHeight * 0.12
-                    },
-                    headerTitleStyle: {
-                        fontSize: 20,
-                        color: 'white'
-                    }
+                <Stack.Navigator initialRouteName="LoginScreen" screenOptions={{
+                    
                 }}>
                     <Stack.Screen
                         name="HomeScreen"
                         component={HomeScreen}
                         options={{headerShown: false}}
-                          
-                            
+                                  
                         />
-                
+                  <Stack.Screen
+                        name="LoginScreen"
+                        component={LoginScreen}
+                        options={{headerShown: false}}/>
 
                     <Stack.Screen
                         name="ChoiScreen"
