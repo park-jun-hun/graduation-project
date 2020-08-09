@@ -14,7 +14,7 @@ export default function LoginScreen({navigation}) {
        
      <Container>
          <ImageBackground style={{width: '100%', height: '75%'}} 
-         source={require('./pic/main.png')}/>
+         source={require('./pic/main2.png')}/>
      
          <Textstyle>
             <LoginText/>
