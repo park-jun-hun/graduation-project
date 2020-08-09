@@ -58,3 +58,11 @@ export default function App() {
         </SafeAreaProvider>
     );
 }
+<<<<<<< HEAD
+=======
+
+const HeaderIcon = styled.TouchableOpacity`
+margin-left: 30px;
+margin-right: ${props => (props.home ? '0px' : '30px')};
+`;
+>>>>>>> master
