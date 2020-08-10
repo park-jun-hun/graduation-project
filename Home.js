@@ -84,7 +84,7 @@ export default function HomeScreen({navigation}) {
 
 const Container = styled.View`
   flex:1;
-
+  background : white;
 `;
 const Main =styled.View`
   flex:0.4;
