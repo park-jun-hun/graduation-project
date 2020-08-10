@@ -45,4 +45,8 @@ function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
+<<<<<<< Updated upstream
 export default SvgComponent
+=======
+export default SvgComponent
+>>>>>>> Stashed changes
