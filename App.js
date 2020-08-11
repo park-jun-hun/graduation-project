@@ -5,12 +5,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from "./Home";
-import MenuScreen from "./Menu";
 import ChoiScreen from "./Choi";
 import ParkScreen from "./Park";
 import LeeScreen from "./Lee";
+import LoginScreen from "./Login";
+import IntroScreen from "./Intro";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import MenuIcon from "./svgs/menu";
+
 
 import styled from "styled-components/native";
 export const winWidth = Dimensions.get('window').width;
@@ -25,57 +26,40 @@ export default function App() {
 
         <SafeAreaProvider>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{
-                    headerStyle: {
-                        backgroundColor: '#484848',
-                        shadowColor: 'transparent',
-                        height: winHeight * 0.12
-                    },
-                    headerTitleStyle: {
-                        fontSize: 20,
-                        color: 'white'
-                    }
+                <Stack.Navigator initialRouteName="LoginScreen" screenOptions={{
+                    
                 }}>
                     <Stack.Screen
                         name="HomeScreen"
                         component={HomeScreen}
-                        options={({navigation, route}) => ({
-                        
-                            headerLeft: () => (
-                                <HeaderIcon onPress={() => navigation.navigate('MenuScreen')}>
-                                    <MenuIcon/>
-                                </HeaderIcon>
-                            ),
-                            headerTitleAlign: "center",
-                            headerTitleStyle: {
-                                fontWeight: 'bold',
-                                color: 'white',
-                                fontSize: 20
-                            }
-                        })}/>
-                    <Stack.Screen
-                        name="MenuScreen"
-                        component={MenuScreen}
-                       />
+                        options={{headerShown: false}}
+                                  
+                        />
+                  <Stack.Screen
+                        name="LoginScreen"
+                        component={LoginScreen}
+                        options={{headerShown: false}}/>
 
                     <Stack.Screen
                         name="ChoiScreen"
-                        component={ChoiScreen}/>
+                        component={ChoiScreen}
+                        options={{headerShown: false}}/>
                     <Stack.Screen
                         name="ParkScreen"
-                        component={ParkScreen}/>
+                        component={ParkScreen}
+                        options={{headerShown: false}}/>
 
                     <Stack.Screen
                         name="LeeScreen"
-                        component={LeeScreen}/>
+                        component={LeeScreen}
+                        options={{headerShown: false}}/>
+                         <Stack.Screen
+                        name="IntroScreen"
+                        component={IntroScreen}
+                        options={{headerShown: false}}/>
 
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>
     );
 }
-
-const HeaderIcon = styled.TouchableOpacity`
-margin-left: 30px;
-margin-right: ${props => (props.home ? '0px' : '30px')};
-`;
