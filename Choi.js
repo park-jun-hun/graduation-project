@@ -20,4 +20,4 @@ export default function InformationScreen({navigation}) {
             </View>
         </SafeAreaView>
     )
-}
+}  
