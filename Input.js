@@ -43,10 +43,7 @@ function InputScreen(props,{navigation}) {
                 value={id}
             />
           
-            <CheckBtn>
-        
-            
-            </CheckBtn>
+          
             </Text_style>
             
             <SecondBar></SecondBar>

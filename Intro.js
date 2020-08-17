@@ -38,7 +38,7 @@ export default function IntroScreen() {
                 onChangeText={(text) => ID(text)}
                 value={id}
             />
-            <Btn  style={{left:20}}
+            <Btn  style={{left:13}}
             ><BtnText  style={{height: 40,textAlign:'center' }}
              onPress={() =>  {
             check(id);
