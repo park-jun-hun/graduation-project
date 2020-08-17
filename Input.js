@@ -2,24 +2,28 @@ import {Text, TextInput, View, Easing, Button} from "react-native";
 import React, {useState} from "react";
 import styled from "styled-components/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {connect} from 'react-redux';
+import {mapDispatchToProps, mapStateToProps} from "./Mapping";
 import Icon from "./svg/icon";
 import MT from "./svg/mt";
+import LoginScreen from "./Login";
+import * as Progress from 'react-native-progress';
 
 let id_check=0;
 
-export default function IntroScreen() {
+function InputScreen(props,{navigation}) {
     const [id, ID] = useState("");
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [checkPSW, setCheckpsw] = useState("");
+    let [page,setPage]=useState(1);
+    let [pct,setPct]=useState(0);
+    if(page==1){
     return (
         <Top>
         <Container>
        <Content>
-       <Main_title> 회원가입 </Main_title> 
-
+       <Main_title> 로그인 </Main_title> 
                 </Content>
-                <Temp></Temp>
                 <Bar></Bar>
                 <Temp></Temp>
                 <Text_style>
@@ -38,14 +42,9 @@ export default function IntroScreen() {
                 onChangeText={(text) => ID(text)}
                 value={id}
             />
-            <Btn  style={{left:20}}
-            ><BtnText  style={{height: 40,textAlign:'center' }}
-             onPress={() =>  {
-            check(id);
-            id_check=1;
-    }}> 중복확인  </BtnText></Btn>
+          
             <CheckBtn>
-         
+        
             
             </CheckBtn>
             </Text_style>
@@ -62,15 +61,7 @@ export default function IntroScreen() {
             /></Text_style>
             
             <SecondBar></SecondBar>
-            <Text_style>
-              <TextInput
-                style={{height: 50, fontSize:20}}
-                placeholder="비밀번호 확인"
-                onChangeText={(text) => setCheckpsw(text)}
-                value={checkPSW}
-            /></Text_style>
-
-            <SecondBar></SecondBar>
+         
             <Icon_style>
             <Icon/>
             </Icon_style>
@@ -80,49 +71,38 @@ export default function IntroScreen() {
             
              <Temp></Temp>
              <Btn 
-            style={{top:80, left:45}}><BtnText 
+            style={{top:120, left:45}}><BtnText 
             style={{height: 40,textAlign:'center' }}
             onPress={() =>  {
-            Login(id_check,id,userName,password,checkPSW);
-    }}>회원가입</BtnText></Btn>
+            props.setID(id);
+            props.setName(userName);
+            props.setpsw(password);
+            setPage(2);
+            props.navigation.navigate('HomeScreen');
+            }}>시작하기 </BtnText></Btn>
             
         </Container>
         </Top>
     );
+        }
+        else if(page==2){
+            // props.navigation.navigate('HomeScreen');
+            return(
+            <Prog> 
+                <Text>Loading</Text>
+            <Progress.Bar progress={0} width={200} /></Prog>
+            );   
+    }
 }
-function check(id){
-    if(id==''){
-        alert("아이디를 입력해 주세요");
+function wait(msecs)
+{
+    var start = new Date().getTime();
+    var cur = start;
+    while(cur - start < msecs)
+    {
+    cur = new Date().getTime();
     }
-    else{
-    alert("사용가능한 아이디 입니다.");
 }
-}
-
-function Login(id_check,id,userName,password,checkPSW){
-   if(userName==''){
-        alert("이름을 입력하세요");
-    }
-    else if(id==''){
-        alert("아이디를 입력하세요");
-    }
-    else if (password==''){
-        alert("비밀번호를 입력하세요");
-    }
-    else if(password !=checkPSW){
-        alert("비밀번호를 확인해주세요");
-    }
-    else if(id_check==0){
-        alert("아이디 중복확인을 해주세요")
-    }
-    
-    else if(password==checkPSW){
-        alert("회원가입이 완료되었습니다!")
-       
-    }
-
-}
-
 const Top=styled.View`
     flex:1;
     background:white;
@@ -150,7 +130,7 @@ const Content = styled.View`
     left:10%;
 `;
 const Temp = styled.View`
-    flex:0.1;
+    flex:0.05;
 `;
 const CheckBtn= styled.View`
     padding-left:45%;
@@ -179,10 +159,16 @@ const Main_title=styled.Text`
     font-size:28px;
 `;
 const Icon_style = styled.View`
-  top:10%;
+  top:15%;
   left:5%;
 
 `;
 const MainText = styled.View`
+    top:5%;
     left:45%;
 `;
+const Prog = styled.View`
+    top:45%
+    align-items:center;
+`;
+export default connect(mapStateToProps, mapDispatchToProps)(InputScreen);
