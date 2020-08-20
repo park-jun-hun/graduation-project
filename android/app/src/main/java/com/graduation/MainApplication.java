@@ -1,5 +1,5 @@
 package com.graduation;
-
+import io.invertase.firebase.dynamiclinks.ReactNativeFirebaseDynamicLinksPackage;
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
@@ -86,7 +86,10 @@ public class MainApplication extends Application implements ReactApplication {
 
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
-
+protected List<ReactPackage> getPackages() {
+  return Arrays.asList(
+    new MainReactPackage(),
+    new ReactNativeFirebaseDynamicLinksPackage(),
   /**
    * Loads Flipper in React Native templates. Call this in the onCreate method with something like
    * initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
