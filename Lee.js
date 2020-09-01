@@ -2,16 +2,15 @@ import React from "react";
 import {StyleSheet,View, Text, Button, TouchableOpacityBase} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
-import {DocumentPicker} from 'expo-document-picker';
+import * as DocumentPicker from 'expo-document-picker';
 
 export default function LeeScreen({navigation}) {
 
-   const _pickDocument = async () => {
-	    let result = await DocumentPicker.getDocumentAsync({
+    const _pickDocument = async () => {
+	    const result = await DocumentPicker.getDocumentAsync({
             type:"audio/*",
             copyToCacheDirectory:false
         });
-		  alert(result.uri);
       console.log(result);
     }
     
