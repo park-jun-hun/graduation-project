@@ -12,6 +12,7 @@ export default function LeeScreen({navigation}) {
             copyToCacheDirectory:false
         });
       console.log(result);
+      alert('You choose ' + result.name+ " File");
     }
     
     return (
@@ -23,8 +24,8 @@ export default function LeeScreen({navigation}) {
         <View style={styles.footer}>
             <TouchableOpacity>
         <Button
-            onPress={() => navigation.navigate('HomeScreen')}
-            title="홈으로 돌아가기"
+             onPress={_pickDocument}
+            title="Select Document"
             color="#841584"
         />
         </TouchableOpacity>
@@ -32,8 +33,8 @@ export default function LeeScreen({navigation}) {
         <View style={styles.footer2}>
         <TouchableOpacity>
              <Button
-            title="Select Document"
-            onPress={_pickDocument}
+            title="Back to home"
+            onPress={() => navigation.navigate('HomeScreen')}
             color="#841584"
         />      
         </TouchableOpacity>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 60,
-        borderBottomWidth: 1,
+        borderBottomWidth:1,
         justifyContent: 'center',
         alignItems: 'center',
       },
@@ -61,11 +62,11 @@ const styles = StyleSheet.create({
       margin:10,
     },
     footer: {
-      height: 20,
+      height: 30,
       margin:10,
     }, 
     footer2: {
-        height: 20,
+        height: 30,
         margin:10,
       },
   });
