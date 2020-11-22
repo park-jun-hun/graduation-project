@@ -29,7 +29,14 @@ Score2:30,
 Score3:40,
 });
 
-console.log(usersRef.key);
+//onsole.log(usersRef.key);
+
+//읽어오기
+const m = firebase.database().ref('Score/Score3').once('value',function(snapshot){
+ var message =snapshot.val();
+ console.log(message);
+});
+
 
 const _pickDocument = async () => {
 	    const result = await DocumentPicker.getDocumentAsync({
