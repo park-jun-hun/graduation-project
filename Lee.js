@@ -3,10 +3,35 @@ import {StyleSheet,View, Text, Button, TouchableOpacityBase} from "react-native"
 import {SafeAreaView} from "react-native-safe-area-context";
 import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
 import * as DocumentPicker from 'expo-document-picker';
+import * as firebase from 'firebase';
+import "firebase/database";
+//import { database } from "react-native-firebase";
 
 export default function LeeScreen({navigation}) {
 
-    const _pickDocument = async () => {
+  const firebaseConfig={
+  apiKey: "AIzaSyDLMuHBhU91JCg3-JT48cX5RQM1Oasov_Q",
+  authDomain: "graduation-4651e.firebaseapp.com",
+  databaseURL: "https://graduation-4651e.firebaseio.com",
+  projectId: "graduation-4651e",
+  storageBucket: "graduation-4651e.appspot.com",
+  messagingSenderId: "449238174270",
+  appId: "1:449238174270:web:3f2168bb35db1e8c025f6f",
+  measurementId: "G-17QJW69D5K"
+};
+
+//firebase.initializeApp(firebaseConfig);
+
+//덮어쓰기
+const usersRef=firebase.database().ref('Score/').set({
+Score1:20,
+Score2:30,
+Score3:40,
+});
+
+console.log(usersRef.key);
+
+const _pickDocument = async () => {
 	    const result = await DocumentPicker.getDocumentAsync({
             type:"audio/*",
             copyToCacheDirectory:false
