@@ -20,7 +20,7 @@ export default function LeeScreen({navigation}) {
   measurementId: "G-17QJW69D5K"
 };
 
-//firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 //덮어쓰기
 const usersRef=firebase.database().ref('Score/').set({
@@ -29,7 +29,7 @@ Score2:30,
 Score3:40,
 });
 
-//onsole.log(usersRef.key);
+//console.log(usersRef.key);
 
 //읽어오기
 const m = firebase.database().ref('Score/Score3').once('value',function(snapshot){
