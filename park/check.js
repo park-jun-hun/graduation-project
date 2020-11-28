@@ -37,7 +37,10 @@ export default function CheckScreen({navigation}) {
     return (
         <Container>
             <Content>
-            <Image source ={require('./image/test.jpg')}></Image>
+            <Image 
+            style={{width:500,height:300}}
+            resizeMode="contain"
+            source ={require('./image/test.jpg')}></Image>
             </Content>
             <Start>
                 <Text onPress={() => navigation.navigate('HomeScreen')}>
