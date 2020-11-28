@@ -45,7 +45,7 @@ firebase_admin.initialize_app(cred,{
 #sound.export(dst, format="wav")
 
 dir = db.reference() 
-dir.update({'FilePath':['0.wav','1.wav']})
+dir.update({'FilePath':['music/0.wav','music/1.wav']})
 
 dir = db.reference('FilePath') 
 path=dir.get()
