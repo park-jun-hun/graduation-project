@@ -1,4 +1,4 @@
-import {Text, View, Easing, Button} from "react-native";
+import {Text, Image,View, Easing, Button} from "react-native";
 import React from "react";
 import styled from "styled-components/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -7,25 +7,16 @@ import "firebase/database";
 import {
   Dimensions
 } from 'react-native';
+
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
 
 
 
 export default function CheckScreen({navigation}) {
-    const firebaseConfig={
-        apiKey: "AIzaSyDLMuHBhU91JCg3-JT48cX5RQM1Oasov_Q",
-        authDomain: "graduation-4651e.firebaseapp.com",
-        databaseURL: "https://graduation-4651e.firebaseio.com",
-        projectId: "graduation-4651e",
-        storageBucket: "graduation-4651e.appspot.com",
-        messagingSenderId: "449238174270",
-        appId: "1:449238174270:web:3f2168bb35db1e8c025f6f",
-        measurementId: "G-17QJW69D5K"
-      };
-
+  
       
-      //firebase.initializeApp(firebaseConfig);
+    //  firebase.initializeApp(firebaseConfig);
 
       //덮어쓰기
     const usersRef=firebase.database().ref('Score/').set({
@@ -46,7 +37,7 @@ export default function CheckScreen({navigation}) {
     return (
         <Container>
             <Content>
-            <Image source ={require('../pic/test.jpg')}></Image>
+            <Image source ={require('./image/test.jpg')}></Image>
             </Content>
             <Start>
                 <Text onPress={() => navigation.navigate('HomeScreen')}>
