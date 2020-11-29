@@ -15,7 +15,18 @@ const winHeight = Dimensions.get('window').height;
 export default function CheckScreen({navigation}) {
   
 
-//    firebase.initializeApp(firebaseConfig);
+  const firebaseConfig={
+    apiKey: "AIzaSyDLMuHBhU91JCg3-JT48cX5RQM1Oasov_Q",
+    authDomain: "graduation-4651e.firebaseapp.com",
+    databaseURL: "https://graduation-4651e.firebaseio.com",
+    projectId: "graduation-4651e",
+    storageBucket: "graduation-4651e.appspot.com",
+    messagingSenderId: "449238174270",
+    appId: "1:449238174270:web:3f2168bb35db1e8c025f6f",
+    measurementId: "G-17QJW69D5K"
+  };
+
+   //firebase.initializeApp(firebaseConfig);
 
       //덮어쓰기
       const usersRef=firebase.database().ref('Score/').set({
@@ -45,14 +56,17 @@ export default function CheckScreen({navigation}) {
             <Text style={styles.headerminiText}>Graph comparing input files with your own voice</Text>
           </View>
           <View style={styles.content}>
-            <Text style={styles.Qscore}>Your score is...</Text>
-          <Text style={styles.score}>{message}</Text>
+       
+          <Image 
+            style={styles.graph}
+            resizeMode="contain"
+            source ={require('./image/sample.jpg')}></Image>
           </View>
       
           <View style={styles.footer}>
           <Button
-            title="Back to home"
-            onPress={() => navigation.navigate('HomeScreen')}
+            title="Back"
+            onPress={() => navigation.navigate('ParkScreen')}
             color="#841584"
         />  
           </View>
@@ -72,7 +86,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    marginTop:150,
+    marginTop:100,
 
     alignItems:'center',
   },
@@ -93,12 +107,9 @@ const styles = StyleSheet.create({
     marginTop : 10,
     color:'gray',
       },
-      score: {
-        fontSize:45,
-       marginTop:10,
-      },
-      Qscore: {
-        fontSize:25,
-       marginTop:25,
+      graph: {
+        width:400,
+        height:250,
+        marginTop:40,
       },
 });
