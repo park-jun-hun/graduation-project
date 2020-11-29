@@ -1,18 +1,41 @@
 import {StyleSheet, View, SafeAreaView, Text,Image,Easing, Button} from "react-native";
 import React, { Component } from 'react';
 import * as DocumentPicker from 'expo-document-picker';
+import * as firebase from 'firebase';
+import "firebase/database";
+
+
+
 export default function ScoreScreen({navigation}) {
-  
+
+const firebaseConfig={
+  apiKey: "AIzaSyDLMuHBhU91JCg3-JT48cX5RQM1Oasov_Q",
+  authDomain: "graduation-4651e.firebaseapp.com",
+  databaseURL: "https://graduation-4651e.firebaseio.com",
+  projectId: "graduation-4651e",
+  storageBucket: "graduation-4651e.appspot.com",
+  messagingSenderId: "449238174270",
+  appId: "1:449238174270:web:3f2168bb35db1e8c025f6f",
+  measurementId: "G-17QJW69D5K"
+};
+
+  let name;
   const _pickDocument = async () => {
     const result = await DocumentPicker.getDocumentAsync({
           type:"audio/*",
           copyToCacheDirectory:false
       });
-    console.log(result);
-    alert('You choose ' + result.name+ " File");
+    //console.log(result.name);
+    //alert('You choose ' + result.name+ " File");
+    name=result.name;
+    console.log(name);
+
+    const usersRef=firebase.database().ref('FilePath/').set({
+      title:name,
+        });
+
   }
   
-
       return (
         <SafeAreaView style={styles.container}>
           <View style={styles.header}>
