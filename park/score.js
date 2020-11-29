@@ -60,7 +60,13 @@ export default function ScoreScreen({navigation}) {
           <Text style={styles.score}>{message}</Text>
           </View>
       
-          <View style={styles.footer}></View>
+          <View style={styles.footer}>
+          <Button
+            title="Back to home"
+            onPress={() => navigation.navigate('HomeScreen')}
+            color="#841584"
+        />  
+          </View>
         </SafeAreaView>
       );
     }
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     height: 50,
-    backgroundColor: '#4fbc7a',
+    
   },
   headerText:{
   fontSize:35,
