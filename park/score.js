@@ -38,7 +38,7 @@ export default function ScoreScreen({navigation}) {
     //console.log(usersRef.key);
     let message;
     //읽어오기
-    const m = firebase.database().ref('Score/Score3').on('value',function(snapshot){
+    const m = firebase.database().ref('Score').on('value',function(snapshot){
      message =snapshot.val();
      console.log(message);
     });
@@ -62,7 +62,7 @@ export default function ScoreScreen({navigation}) {
           <View style={styles.footer}>
           <Button
             title="Back to home"
-            onPress={() => navigation.navigate('HomeScreen')}
+            onPress={() => navigation.navigate('ParkScreen')}
             color="#841584"
         />  
           </View>

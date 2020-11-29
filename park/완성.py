@@ -16,10 +16,14 @@ from playsound import playsound
 from os import path
 from pydub import AudioSegment
 import pydub
+#from ffprobe import FFProbe
 #import ffprobe
 #import subprocess
 #subprocess.call(['path/to/ffmpeg','-i','2.mp3','3.mp3'])
 #pydub.AudioSegment.ffmpeg = "ffmpeg"
+
+#import sys
+#sys.path.append('/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/ffmpeg')
 
 sum_frequency=0
 sum_times=0
@@ -34,23 +38,28 @@ firebase_admin.initialize_app(cred,{
          'storageBucket': "graduation-4651e.appspot.com",
   })
 
-# files                                                                         
-#src = "2.mp3"
-#dst = "2.wav"
-#src1 = "3.mp3"
-#dst1 = "3.wav"
+dir = db.reference('InputFile')
+input_file = dir.get()
+dir2 = db.reference('VoiceFile')
+voice_file = dir2.get()
+dir = db.reference('InputStore')
+input_store = dir.get()
+dir2 = db.reference('VoiceStore')
+voice_store = dir2.get()
 
-# convert wav to mp3                                                            
-#sound = AudioSegment.from_mp3(src)
-#sound.export(dst, format="wav")
+input_file="music/"+input_file[0]
+voice_file="music/"+voice_file[0]
+
+
+input_store.append(input_file)
+voice_store.append(voice_file)
 
 dir = db.reference() 
-dir.update({'FilePath':['music/0.wav','music/1.wav']})
+dir.update({'InputStore':input_store})
+dir.update({'VoiceStore':voice_store})
 
-dir = db.reference('FilePath') 
-path=dir.get()
 
-name = [path[0],path[0]]
+name = [input_file,voice_file]
 
 #test data set
 test_sample_rate, test_samples = wavfile.read(name[0])
@@ -112,7 +121,7 @@ dir.update({'Score':[accuracy]})
 
 FIG_SIZE = (14,5)
 #x는 파형의 amplitude 값, sr은 sampling rate
-x, sr = librosa.load(path[0])
+x, sr = librosa.load(name[0])
 
 #spectral centroid
 spectral_centroids = librosa.feature.spectral_centroid(x, sr=sr)[0]
@@ -126,7 +135,7 @@ def normalize(x, axis=0):
 librosa.display.waveplot(x, sr=sr, alpha=0.4)
 plt.plot(t, normalize(spectral_centroids), color='r')
 
-x2, sr2 = librosa.load(path[0])
+x2, sr2 = librosa.load(name[1])
 
 #spectral centroid
 spectral_centroids = librosa.feature.spectral_centroid(x2, sr=sr2)[0]
@@ -139,5 +148,4 @@ def normalize(x, axis=0):
 
 librosa.display.waveplot(x2, sr=sr2, alpha=0.4)
 plt.plot(t, normalize(spectral_centroids), color='b')
-#plt.show()
 plt.savefig("./image/sample.jpg")
