@@ -1,10 +1,9 @@
-import {Text, View, Easing, Button} from "react-native";
-import React from "react";
+import {StyleSheet, View, SafeAreaView, Text,Image,Easing, Button} from "react-native";
+import React, { Component } from 'react';
 import styled from "styled-components/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import * as firebase from 'firebase';
 import "firebase/database";
-
 import {
   Dimensions
 } from 'react-native';
@@ -40,34 +39,71 @@ export default function ScoreScreen({navigation}) {
     //console.log(usersRef.key);
     let message;
     //읽어오기
-    const m = firebase.database().ref('Score/Score1').on('value',function(snapshot){
+    const m = firebase.database().ref('Score').on('value',function(snapshot){
      message =snapshot.val();
      console.log(message);
     });
 
+
       return (
-        <Container>
-            <Content>
-      <Text>{message}</Text>
-            </Content>
-            <Start>
-                <Text onPress={() => navigation.navigate('HomeScreen')}>
-                    시작하기
-                </Text>
-            </Start>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.header}>
+          <Image 
+              style={{width:150,height:110, marginTop :15}}
+              resizeMode="contain"
+              source ={require('./icon/score.png')}></Image>
+            <Text style={styles.headerText}>Check Score</Text>
+            <Text style={styles.headerminiText}>You can check your score after the practice</Text>
+          </View>
+          <View style={styles.content}>
+            <Text style={styles.Qscore}>Your score is...</Text>
+          <Text style={styles.score}>{message}</Text>
+          </View>
+      
+          <View style={styles.footer}></View>
+        </SafeAreaView>
+      );
+    }
+  
 
-        </Container>
-    );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    height: 100,
+    alignItems : 'center',
+    marginTop : 100,
+  },
+  content: {
+    flex: 1,
+    marginTop:150,
 
-const Container = styled.View`
-  flex:1;
-`;
-const Content = styled.View`
-    align-items:center;
-    top:50%
-`;
-const Start = styled.View`
-    top:90%;
-    left:80%;
-`;
+    alignItems:'center',
+  },
+  footer: {
+    height: 50,
+    backgroundColor: '#4fbc7a',
+  },
+  headerText:{
+  fontSize:35,
+  fontWeight : 'bold',
+  alignItems : 'center',
+  marginTop : 10,
+  },
+  headerminiText:{
+    fontSize:17,
+    fontWeight : 'bold',
+    alignItems : 'center',
+    marginTop : 10,
+    color:'gray',
+      },
+      score: {
+        fontSize:45,
+       marginTop:10,
+      },
+      Qscore: {
+        fontSize:25,
+       marginTop:25,
+      },
+});
