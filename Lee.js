@@ -30,10 +30,10 @@ const firebaseConfig={
     name=result.name;
     console.log(name);
 
-    const usersRef=firebase.database().ref('FilePath/').set({
-      title:name,
+    const usersRef=firebase.database().ref('FilePath/').push({
+      push:name,
         });
-
+        
   }
   
       return (
