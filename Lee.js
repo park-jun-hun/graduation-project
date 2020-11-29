@@ -30,11 +30,11 @@ const firebaseConfig={
     name=result.name;
     console.log(name);
 
-    const usersRef=firebase.database().ref('InputFile/').push({
-      name,
+    const usersRef=firebase.database().ref('InputFile/').set({
+      0:name,
         });
-        const Ref=firebase.database().ref('VoiceFile/').push({
-          name,
+        const Ref=firebase.database().ref('VoiceFile/').set({
+          0:name,
             });
           
         
