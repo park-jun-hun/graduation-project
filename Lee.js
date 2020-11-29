@@ -1,74 +1,88 @@
-import React from "react";
-import {StyleSheet,View, Text, Button, TouchableOpacityBase} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
-import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
+import {StyleSheet, View, SafeAreaView, Text,Image,Easing, Button} from "react-native";
+import React, { Component } from 'react';
 import * as DocumentPicker from 'expo-document-picker';
+export default function ScoreScreen({navigation}) {
+  
+  const _pickDocument = async () => {
+    const result = await DocumentPicker.getDocumentAsync({
+          type:"audio/*",
+          copyToCacheDirectory:false
+      });
+    console.log(result);
+    alert('You choose ' + result.name+ " File");
+  }
+  
 
-export default function LeeScreen({navigation}) {
-
-
-
-const _pickDocument = async () => {
-	    const result = await DocumentPicker.getDocumentAsync({
-            type:"audio/*",
-            copyToCacheDirectory:false
-        });
-      console.log(result);
-      alert('You choose ' + result.name+ " File");
-    }
-    
-    return (
+      return (
         <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
-        <Text style={styles.headerText}>음악 가져오기</Text>
-        </View>
-        <View style={styles.content}></View>
-        <View style={styles.footer}>
-            <TouchableOpacity>
+          <View style={styles.header}>
+          <Image 
+              style={{width:130,height:80, marginTop :15}}
+              resizeMode="contain"
+              source ={require('./pic/disc.png')}></Image>
+            <Text style={styles.headerText}>Select Music</Text>
+          </View>
+          <View style={styles.content}>
+    
+        
+          </View>
+      
+          <View style={styles.footer}>
+           
         <Button
              onPress={_pickDocument}
             title="Select Document"
             color="#841584"
         />
-        </TouchableOpacity>
+     
         </View>
         <View style={styles.footer2}>
-        <TouchableOpacity>
+      
              <Button
             title="Back to home"
             onPress={() => navigation.navigate('HomeScreen')}
             color="#841584"
         />      
-        </TouchableOpacity>
+        
         </View>
-      </SafeAreaView>
-    )
-}
+
+        </SafeAreaView>
+      );
+    }
+  
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    header: {
-        height: 60,
-        borderBottomWidth:1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-      headerText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-    content: {
-      flex: 1,
-      margin:10,
-    },
-    footer: {
-      height: 30,
-      margin:10,
-    }, 
-    footer2: {
-        height: 30,
-        margin:10,
-      },
-  });
+  container: {
+    flex: 1,
+  },
+  header: {
+    height: 150,
+    alignItems : 'center',
+    marginTop : 30,
+    borderBottomWidth:1,
+  },
+  content: {
+    flex: 1,
+    marginTop:150,
+
+    alignItems:'center',
+  },
+  footer: {
+    height: 30,
+     margin:10,
+  },
+  footer2: {
+    height: 20,
+    margin:10,
+    marginBottom : 20,
+  },
+
+  headerText:{
+  fontSize:35,
+  fontWeight : 'bold',
+  alignItems : 'center',
+  marginTop : 5,
+  },
+ 
+    
+});
