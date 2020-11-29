@@ -11,7 +11,6 @@ const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
 
 
-
 export default function ScoreScreen({navigation}) {
   
     const firebaseConfig={
@@ -39,7 +38,7 @@ export default function ScoreScreen({navigation}) {
     //console.log(usersRef.key);
     let message;
     //읽어오기
-    const m = firebase.database().ref('Score').on('value',function(snapshot){
+    const m = firebase.database().ref('Score/Score3').on('value',function(snapshot){
      message =snapshot.val();
      console.log(message);
     });
