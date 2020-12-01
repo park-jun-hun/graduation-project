@@ -25,7 +25,7 @@ export default function ScoreScreen({navigation}) {
       };
 
       
-      //firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig);
 
       //덮어쓰기
    /* const usersRef=firebase.database().ref('Score/').set({
@@ -38,7 +38,7 @@ export default function ScoreScreen({navigation}) {
     //console.log(usersRef.key);
     let message;
     //읽어오기
-    const m = firebase.database().ref('Score').on('value',function(snapshot){
+    const m = firebase.database().ref('Score/').on('value',function(snapshot){
      message =snapshot.val();
      console.log(message);
     });
