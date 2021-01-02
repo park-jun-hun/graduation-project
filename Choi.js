@@ -9,7 +9,7 @@ export default function ChoiScreen({navigation}) {
             <View>
                 <Button
                     onPress={() => navigation.navigate('HomeScreen')}
-                    title="back to home"
+                    title="back to home(checking)"
                 />
             </View>
         </SafeAreaView>
