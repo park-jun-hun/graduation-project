@@ -128,17 +128,12 @@ const MainText = styled.View`
   position:absolute;
   top:45%;
   left:45%;
-<<<<<<< Updated upstream
+
 `;
 const IconStyle =styled.View`
   position:absolute;
   top:30%;
   left:5%;
-=======
->>>>>>> Stashed changes
-`;
-const IconStyle =styled.View`
-  position:absolute;
-  top:30%;
-  left:5%;
+
+
 `;
