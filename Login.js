@@ -2,18 +2,17 @@ import React from "react";
 import {View, Text, Button, Image, StyleSheet,TouchableOpacity, ImageBackground} from "react-native";
 import styled from "styled-components/native";
 import {SafeAreaView} from "react-native-safe-area-context";
-
 import LoginText from "./svg/LoginText"; 
 import Center from "./svg/center";
 import Btn1 from "./svg/btn1";
 import Btn2 from "./svg/btn2";
 
 export default function LoginScreen({navigation}) {
-    
+  
     return (
        
      <Container>
-         <ImageBackground style={{width: '100%', height: '75%'}} 
+         <ImageBackground style={{width: '100%', heightv: '75%'}} 
          source={require('./pic/main.png')}/>
      
          <Textstyle>
@@ -30,10 +29,7 @@ export default function LoginScreen({navigation}) {
          <Btn2style>
          <Btn2  onPress={() => navigation.navigate('InputScreen')}/>
          </Btn2style>
-     
-     
 
-    
         </Container>
     )
 }

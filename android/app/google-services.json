@@ -24,6 +24,12 @@
           "current_key": "AIzaSyCRqUgaOlCPBxl4Seu71fn-aSnsLJhzi8c"
         }
       ],
+      "expo": {
+        "android": {
+          "package": "com.company.graduation",
+          "googleServicesFile": "./google-services.json"
+        }
+      },
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [

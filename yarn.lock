@@ -5708,7 +5708,6 @@ expo-file-system@~9.0.1:
   dependencies:
     uuid "^3.4.0"
 
-<<<<<<< HEAD
 <<<<<<< Updated upstream
 expo-firebase-core@~1.1.1:
   version "1.1.1"
@@ -5731,8 +5730,6 @@ expo-firebase-database@^2.0.0:
     expo-firebase-app "~2.0.0"
 >>>>>>> Stashed changes
 
-=======
->>>>>>> parent of b7c274d... test
 expo-font@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-8.2.1.tgz#82f9d7f3e96a0ea4376e573b126379aa754ea807"
