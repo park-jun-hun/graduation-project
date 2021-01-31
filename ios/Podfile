@@ -88,6 +88,10 @@ target 'graduation' do
   add_flipper_pods!
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   post_install do |installer|
     flipper_post_install(installer)
   end
