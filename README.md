@@ -14,4 +14,6 @@ url : https://codepen.io/search/pens?q=waveform&cursor=ZD0xJm89MCZwPTQ=
 The development environment used roomIED.
 url : https://ide.goorm.io/
 
+web url : https://graduation-project-fzvhk.run.goorm.io/graduation_project/page.html
+
 
