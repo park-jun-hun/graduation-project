@@ -10,6 +10,10 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "android": {
+      "package": "com.mypackage.coolapp",
+      "googleServicesFile": "./google-services.json"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -17,10 +21,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mypackage.coolapp"
     },
     "web": {
+      "config": {
+        "firebase": {
+          "appId": "xxxxxxxxxxxxx:web:xxxxxxxxxxxxxxxx",
+          "apiKey": "AIzaSyCRqUgaOlCPBxl4Seu71fn-aSnsLJhzi8c",
+          "measurementId": "G-XXXXXXXXXXXX"
+        }
+      },
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
