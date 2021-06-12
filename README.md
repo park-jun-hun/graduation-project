@@ -20,11 +20,8 @@ How to use
 
 1. install node url : https://nodejs.org/ko/download
 2. intall expo cli. in terminal 'npm install expo-cli --global' 
-3. crerate start file, 
-   expo init projectName
-   cd projectName 
-   expo start
+3. crerate start file, in terminal 'expo init projectName', 'cd projectName', 'expo start'
 4. just set the blank template
 5. download the file in master branch. 
 6. start the expo use 'expo start' 
-7. you can check the expo webpage and select which to execute. ex) run ios, android and simulater. 
+7. you can check the expo webpage and select which to execute. ex) run ios, android and simulator. 
